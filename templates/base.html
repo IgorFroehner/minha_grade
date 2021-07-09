@@ -8,10 +8,17 @@
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="/static/bootstrap.min.css">
 
+    <style>
+        body{
+            padding: 0;
+            border: 0;
+        }
+    </style>
+
     {% block head %} {% endblock %}
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark p-0">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Minha Grade</a>
@@ -33,13 +40,15 @@
         </div>
     </nav>
 
-    {% block content %} {% endblock %}
+    <div class="container-fluid p-0" style="border: 0; padding: 0;">
+        {% block content %} {% endblock %}
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-center text-white">
 
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © Feito por
+            &copy; Feito por
             <a class="text-white" href="https://github.com/IgorFroehner">Igor Froehner</a>
             <p>
                 <a class="text-white" href="">GitHub</a>

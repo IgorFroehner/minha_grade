@@ -1,16 +1,14 @@
 from flask import Flask, render_template
 
+import blueprints
+
 app = Flask(__name__)
+app.register_blueprint(blueprints.grade, url_prefix='/grade')
 
 
 @app.route('/')
-def index():
+def index() -> str:
     return render_template('index.html')
-
-
-@app.route('/grade')
-def grade():
-    return render_template('grade.html')
 
 
 @app.route('/minha_grade')

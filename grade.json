@@ -1,0 +1,50 @@
+{
+  "id_schedule": 1,
+  "name_schedule": "Computação 2019",
+  "phases": [
+    {
+      "phase_number": 1,
+      "subjects": [
+        {
+          "cod_subject": "CDI0001",
+          "workload": 36,
+          "requirements": []
+        },
+        {
+          "cod_subject": "ALI0001",
+          "workload": 72,
+          "requirements": []
+        }
+      ]
+    },
+    {
+      "phase_number": 2,
+      "subjects": [
+        {
+          "cod_subject": "CDI0002",
+          "workload": 72,
+          "requirements": [
+            {
+              "cod_subject": "CDI0001"
+            }
+          ]
+        },
+        {
+          "cod_subject": "ALI0002",
+          "workload": 72,
+          "requirements": [
+            {
+              "cod_subject": "ALI0001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "optional_subjects": [
+    {
+      "cod_subject": "ALI0002",
+      "workload": 72
+    }
+  ]
+}
