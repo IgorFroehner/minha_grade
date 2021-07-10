@@ -3,7 +3,7 @@ from flask import Flask, render_template
 import blueprints
 
 app = Flask(__name__)
-app.register_blueprint(blueprints.grade, url_prefix='/grade')
+app.register_blueprint(blueprints.schedule_controller, url_prefix='/schedule')
 
 
 @app.route('/')

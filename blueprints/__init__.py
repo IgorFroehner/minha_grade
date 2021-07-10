@@ -1,1 +1,1 @@
-from blueprints.grade import blue as grade
+from blueprints.schedule_controller import blue as schedule_controller
