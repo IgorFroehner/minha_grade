@@ -1,7 +1,7 @@
 
 from typing import List, Optional
 
-from model.db import db
+from model import db
 from model.phase import Phase
 
 
@@ -11,6 +11,12 @@ class Schedule:
         self.name: str = name
         self.phases: List[Phase] = []
 
+    def set_phases(self, phases: List[Phase]):
+        self.phases = phases
+
+    def add_phase(self, phase: Phase):
+        self.phases.append(phase)
+
 
 def save(schedules: List[Schedule]):
     for schedule in schedules:
@@ -18,13 +24,15 @@ def save(schedules: List[Schedule]):
 
 
 def save_one(schedule: Schedule):
-    db.schedule.insert_one(schedule.__dict__)
+    schedule_dict = schedule.__dict__
+    print(schedule_dict)
+    db.schedule.insert_one(schedule_dict)
 
 
 def find_all(filter_schedule: dict = None) -> List[Schedule]:
     if filter_schedule is None:
         filter_schedule = {}
-    cursor = db.test_schedule.find(filter_schedule)
+    cursor = db.schedule.find(filter_schedule)
     schedules = []
     for schedule in cursor:
         new_schedule = Schedule(
