@@ -10,8 +10,13 @@
     <div class="card-body">
         <div class="d-grid gap-2">
             {% for schedule in schedules %}
-            <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href = '/schedule/{{ schedule['id_schedule'] }}">{{ schedule['name'] }}</button>
+            <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href = '/schedule/2'">{{ schedule['name'] }}</button>
             {% endfor %}
+            <button class="btn btn-lg btn-primary" type="button" onclick="">Química</button>
+            <button class="btn btn-lg btn-primary" type="button" onclick="">Mecânica 2015</button>
+            <button class="btn btn-lg btn-primary" type="button" onclick="">Produção 2016-2</button>
+            <button class="btn btn-lg btn-primary" type="button" onclick="">Produção 2019-2</button>
+            <button class="btn btn-lg btn-primary" type="button" onclick="">Matemática 2011</button>
         </div>
     </div>
 </div>

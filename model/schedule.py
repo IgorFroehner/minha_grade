@@ -3,10 +3,16 @@ from typing import List, Optional
 
 from model import db
 from model.phase import Phase
+from mongoengine import Document, IntField, StringField, ListField, ReferenceField
 
 
-class Schedule:
-    def __init__(self, id_schedule: int, name: str):
+class Schedule(Document):
+    id_schedule = IntField()
+    name = StringField()
+    phases = ListField(ReferenceField(Phase))
+
+    def __init__(self, id_schedule: int, name: str, *args, **values):
+        super().__init__(*args, **values)
         self.id_schedule: int = id_schedule
         self.name: str = name
         self.phases: List[Phase] = []

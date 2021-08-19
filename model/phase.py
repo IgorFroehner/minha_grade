@@ -2,9 +2,15 @@
 from typing import List
 from model.subject import Subject
 
+from mongoengine import Document, IntField, ListField, ReferenceField
 
-class Phase:
-    def __init__(self, phase_number: int):
+
+class Phase(Document):
+    phase_number = IntField()
+    subjects = ListField(ReferenceField(Subject))
+
+    def __init__(self, phase_number: int, *args, **values):
+        super().__init__(*args, **values)
         self.phase_number: int = phase_number
         self.subjects: List[Subject] = []
 
