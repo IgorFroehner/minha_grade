@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/bootstrap.min.css">
 
     <style>
-        body{
+        body {
             padding: 0;
             border: 0;
         }
@@ -19,45 +19,63 @@
 </head>
 
 <body class="bg-dark p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Minha Grade</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Minha Grade</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Grades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/minha_grade">Minha Grade</a>
-                    </li>
-                </ul>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/schedule">Grades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/my_schedule">Minha Grade</a>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="text-end text-white me-5">
+                {% if current_user.is_authenticated %}
+                    User: {{ current_user.user }}
+                    <a class="ms-5" href="/logout">
+                        <input type="button" class="btn btn-dark" value="Logout">
+                    </a>
+                {% else %}
+                    <a href="/login">
+                        <input type="button" class="btn btn-success" value="Login">
+                    </a>
+                {% endif %}
             </div>
         </div>
-    </nav>
-
-    <div class="container-fluid p-0 min-vh-100" style="border: 0; padding: 0;">
-        {% block content %} {% endblock %}
     </div>
+</nav>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-center text-white">
+<div class="container-fluid p-0 min-vh-100" style="border: 0; padding: 0;">
+    {% block content %} {% endblock %}
+</div>
 
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            &copy; Feito por
-            <a class="text-white" href="https://github.com/IgorFroehner">Igor Froehner e Mateus Ladeira</a>
-            <p>
-                <a class="text-white" href="">GitHub</a>
-            </p>
-        </div>
-    </footer>
-    <!-- Footer -->
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
 
-    {% block script %} {% endblock %}
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        &copy; Feito por
+        <a class="text-white" href="https://github.com/IgorFroehner">Igor Froehner e Mateus Ladeira</a>
+        <p>
+            <a class="text-white" href="">GitHub</a>
+        </p>
+    </div>
+</footer>
+<!-- Footer -->
+
+{% block script %} {% endblock %}
 </body>
 
 </html>

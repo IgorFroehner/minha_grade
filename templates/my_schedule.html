@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/schedules.css">
+    <link rel="stylesheet" href="/static/css/minha_grade.css">
+{% endblock %}
+{% block content %}
+
+    <div class="row container-fluid out-container">
+
+        {% if current_user.schedule %}
+
+            {% for phase in current_user.schedule.phases %}
+                <div class="card mb-3 mt-3 phase">
+                    <div class="card-header">
+                        <h4 class="card-title">Fase {{ phase.phase_number }}</h4>
+                    </div>
+
+                    <div id="phase-{{ phase.phase_number }}" class="card-body container inside-card"
+                         ondragover="onDragOver(event);"
+                         ondrop="onDrop(event);">
+
+                        {% for subject in phase.subjects %}
+
+                            <div id="subject-{{ subject.id_subject }}" class="card bg-info mb-2 subject-cards"
+                                 draggable="true"
+                                 ondragstart="onDragStart(event);">
+                                <div class="card-body">
+                                    <h5 class="card-text text-center">{{ subject.id_subject }}</h5>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+            <div class="card bg-dark border-info text-info mt-3">
+                <div class="card-body">
+                        <h1>Faça Login ou selecione uma grade antes de acessa-lá.</h1>
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="/static/javascript/minha_grade.js"></script>
+{% endblock %}

@@ -1,24 +1,19 @@
 {% extends "base.html" %}
 {% block title %} Grades {% endblock %}
-{% block head %} {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="../static/css/index.css">
+{% endblock %}
 {% block content %}
 
-<div class="card border-primary mt-3 m-2">
-    <div class="card-header text-center">
-        <h1 class="card-title">Grades</h1>
-    </div>
-    <div class="card-body">
-        <div class="d-grid gap-2">
-            {% for schedule in schedules %}
-            <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href = '/schedule/2'">{{ schedule['name'] }}</button>
-            {% endfor %}
-            <button class="btn btn-lg btn-primary" type="button" onclick="">Química</button>
-            <button class="btn btn-lg btn-primary" type="button" onclick="">Mecânica 2015</button>
-            <button class="btn btn-lg btn-primary" type="button" onclick="">Produção 2016-2</button>
-            <button class="btn btn-lg btn-primary" type="button" onclick="">Produção 2019-2</button>
-            <button class="btn btn-lg btn-primary" type="button" onclick="">Matemática 2011</button>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="container">
+                <div class="inner cover text-black">
+                    <h1 class="cover-heading" style="font-size: 100px">MINHA GRADE</h1>
+                    <p class="lead">Plataforma de gerenciamento de grades de graduação.</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
