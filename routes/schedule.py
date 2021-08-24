@@ -6,7 +6,7 @@ from model import schedule_dao
 blue = Blueprint('schedule', __name__, static_folder='static', template_folder='templates')
 
 
-@blue.route('/schedule', methods=['GET', 'POST'])
+@blue.route('/schedule')
 def schedule():
     schedules = []
     for row in schedule_dao.find_all():
@@ -14,7 +14,7 @@ def schedule():
             'id': row.id,
             'name': row.name
         })
-    return render_template('schedules.html', schedules=schedules)
+    return render_template('schedules.html', schedules=schedules, titulo='Grades')
 
 
 @blue.route('/my_schedule', methods=['POST'])

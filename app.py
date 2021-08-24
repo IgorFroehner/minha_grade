@@ -71,7 +71,7 @@ def index() -> str:
 
 @app.route('/my_schedule')
 def minha_grade():
-    return render_template('my_schedule.html')
+    return render_template('my_schedule.html', title='Minha Grade')
 
 
 if __name__ == '__main__':
