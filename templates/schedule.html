@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Home {% endblock %}
+{% block title %} {{ title }} {% endblock %}
 {% block head %}
     <link rel="stylesheet" href="/static/css/schedules.css">
 {% endblock %}
@@ -20,11 +20,11 @@
         </div>
     </div>
 
-    <div class="container text-center">
+    <div class="container-fluid text-center">
 
         {% for phase in schedule.phases %}
 
-            <div class="card mb-3 mt-3 m-auto phase">
+            <div class="card mb-3 mt-3 phase">
                 <div class="card-header">
                     <h4 class="card-title">Fase {{ phase.phase_number }}</h4>
                 </div>

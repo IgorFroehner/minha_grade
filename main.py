@@ -3,11 +3,8 @@ from model import Schedule, schedule_dao
 from model import Phase
 from model import Subject
 
-from decouple import config
-from mongoengine import connect
 
-
-def create_computacao():
+def create_computacao2012():
     computacao = Schedule('Ciência da Computação 2012/2')
 
     fase1 = Phase(1)

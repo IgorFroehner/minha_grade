@@ -32,7 +32,7 @@ def grade(id_schedule: str):
     returned_schedule = schedule_dao.find_by_id(id_schedule)
     if returned_schedule is None:
         return redirect('/')
-    return render_template('schedule.html', schedule=returned_schedule)
+    return render_template('schedule.html', schedule=returned_schedule, title=returned_schedule.name)
 
 
 @blue.route('/api/<id_schedule>')

@@ -54,7 +54,7 @@ def login():
                 return redirect('/')
         else:
             return render_template('login.html', form=form, erro='Email ou senha incorretos')
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=form, title='Login')
 
 
 @app.route("/logout")
@@ -66,7 +66,7 @@ def logout():
 
 @app.route('/')
 def index() -> str:
-    return render_template('index.html')
+    return render_template('index.html', title='Home')
 
 
 @app.route('/my_schedule')
